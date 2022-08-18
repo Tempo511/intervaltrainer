@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 
 <title>Login/Registration</title>
 </head>
@@ -16,33 +17,34 @@
 
 	<div class="container">
 
-		<h1>Login and Registration</h1>
-
-
-		<div class="d-flex">
+		
+		<div class="d-flex justify-content-center align-items-center p-5 loginBox">
 
 			<!-- Registration div  -->
 			<div class="register">
+			<div class="d-flex justify-content-center">
+			<h3>Create Account</h3>
+			</div>
 				<form:form action="/register" method="post" modelAttribute="newUser">
-					<div class="form-group">
+					<div class="registerInput">
 
 						<form:label path="name">Name:</form:label>
 						<form:input type="text" path="name"></form:input>
 						<form:errors class="text-danger" path="name"></form:errors>
 					</div>
-					<div class="form-group">
+					<div class="registerInput">
 
 						<form:label path="email">Email:</form:label>
 						<form:input type="text" path="email"></form:input>
 						<form:errors class="text-danger" path="email"></form:errors>
 					</div>
-					<div class="form-group">
+					<div class="registerInput">
 
 						<form:label path="password">Password:</form:label>
 						<form:input type="password" path="password"></form:input>
 						<form:errors class="text-danger" path="password"></form:errors>
 					</div>
-					<div class="form-group">
+					<div class="registerInput">
 
 						<form:label path="confirm">Confirm Password:</form:label>
 						<form:input type="password" path="confirm"></form:input>
@@ -66,16 +68,19 @@
 			<!-- 	Login div -->
 
 			<div class="login">
-
+			<div class="d-flex justify-content-center">
+			<h3>Login</h3>
+			</div>
+				
 				<form:form action="/login" method="post" modelAttribute="newLogin">
 
-					<div class="form-group">
+					<div class="registerInput">
 						<form:label path="email">Email:</form:label>
 						<form:input path="email"></form:input>
 						<form:errors class="text-danger" path="email"></form:errors>
 					</div>
 
-					<div class="form-group">
+					<div class="registerInput">
 						<form:label path="password">Password:</form:label>
 						<form:input type="password" path="password"></form:input>
 						<form:errors class="text-danger" path="password"></form:errors>
