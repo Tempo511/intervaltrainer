@@ -94,10 +94,10 @@ border: 2px solid black;
 	align-items: center;
  }
 
-#score {
+/* #score {
 	display: none;
 
-}
+} */
 
 #nextRoundContainer{
 	display: flex;
@@ -176,4 +176,10 @@ min-width: 500px;
 
 .registerInput{
 	margin: 10px;
+}
+
+.formTest {
+	height: 600px;
+	width: 400px;
+	border: 1px solid black;
 }

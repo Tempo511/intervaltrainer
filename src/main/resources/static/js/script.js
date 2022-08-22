@@ -13,6 +13,8 @@ let button2 = document.querySelector('#button2');
 let circle = 	document.getElementById("note1");
 let playAgain = document.getElementById("playAgainButton")
 let statDiv = document.getElementById("correctInterval")
+let xhr = new XMLHttpRequest();
+let selectedButton;
 
 function beginGame(){
 	score = 0;
@@ -27,7 +29,9 @@ function beginGame(){
 		
 }
 function createInterval(){
-	
+	if(selectedButton != null && selectedButton.checked){
+		selectedButton.checked = false;
+	}
     round++;
     circle.style.backgroundColor = " rgb(98, 39, 123)";
     circle.innerText = "";
@@ -59,11 +63,11 @@ relation = intervals[index];
 
 answer = intervalValues[index]
 
-console.log("answer is " + answer)
 
-sound.innerText = relation;
-circle1.innerText = arr[index]
-console.log("Hello world!!!")
+
+//sound.innerText = relation;
+//circle1.innerText = arr[index]
+
 
 
 
@@ -78,17 +82,20 @@ const radioButtons = document.querySelectorAll('input[name="intervals"]');
 function reveal(){
 	
     let selectedInterval;
+   
     for (const radioButton of radioButtons) {
         if (radioButton.checked) {
             
             selectedInterval = radioButton.value;
+            selectedButton = radioButton;
             break;
         }
     }
     if(selectedInterval == answer){
-	button2.style.visibility = "hidden";
-	circle.innerText = "Correct!"
-	circle.style.backgroundColor = "green";
+		button2.style.visibility = "hidden";
+		circle.innerText = "Correct!"
+		circle.style.backgroundColor = "green";
+		
         numCorrect++;
       
 
@@ -103,7 +110,8 @@ function reveal(){
         }
 
     }else{
-
+		let formScore = document.getElementById("formScore");
+		formScore.value = score;
        circle.style.backgroundColor = "red";
        circle.innerText = ("Incorrect!");
        document.getElementById("score").style.display = "inline";
